@@ -5,10 +5,16 @@ from app.schemas.auth import (
     TokenResponse,
     UserResponse,
 )
+from app.schemas.preferences import (
+    PreferencesRequest,
+    PreferencesResponse,
+)
 
 __all__ = [
     "UserSignupRequest",
     "UserLoginRequest",
     "TokenResponse",
     "UserResponse",
+    "PreferencesRequest",
+    "PreferencesResponse",
 ]

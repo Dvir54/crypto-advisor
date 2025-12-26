@@ -133,16 +133,16 @@ git push -u origin main
 - [x] **2.11** Add protected route component
 
 ### Git
-- [ ] **2.12** Git: Commit and push authentication feature
+- [x] **2.12** Git: Commit and push authentication feature
 
 ---
 
 ## Phase 3: Onboarding Quiz
 
 ### Backend
-- [ ] **3.1** Create preferences endpoint: POST /api/user/preferences
-- [ ] **3.2** Create get preferences endpoint: GET /api/user/preferences
-- [ ] **3.3** Update user onboardingComplete flag after saving
+- [x] **3.1** Create preferences endpoint: POST /api/user/preferences
+- [x] **3.2** Create get preferences endpoint: GET /api/user/preferences
+- [x] **3.3** Update user onboardingComplete flag after saving
 
 ### Frontend
 - [ ] **3.4** Create onboarding page with multi-step wizard layout

@@ -145,13 +145,13 @@ git push -u origin main
 - [x] **3.3** Update user onboardingComplete flag after saving
 
 ### Frontend
-- [ ] **3.4** Create onboarding page with multi-step wizard layout
-- [ ] **3.5** Build Step 1: Crypto assets selection (checkboxes)
-- [ ] **3.6** Build Step 2: Investor type selection (radio buttons)
-- [ ] **3.7** Build Step 3: Content type preferences (checkboxes)
-- [ ] **3.8** Connect form to backend API
-- [ ] **3.9** Redirect to dashboard after completion
-- [ ] **3.10** Handle returning users: skip if already completed
+- [x] **3.4** Create onboarding page with multi-step wizard layout
+- [x] **3.5** Build Step 1: Crypto assets selection (checkboxes)
+- [x] **3.6** Build Step 2: Investor type selection (radio buttons)
+- [x] **3.7** Build Step 3: Content type preferences (checkboxes)
+- [x] **3.8** Connect form to backend API
+- [x] **3.9** Redirect to dashboard after completion
+- [x] **3.10** Handle returning users: skip if already completed
 
 ### Git
 - [ ] **3.11** Git: Commit and push onboarding feature

@@ -13,11 +13,12 @@ interface ProtectedRouteProps {
  * Wraps routes that require authentication.
  * - Shows loading state while checking auth status
  * - Redirects to login if user is not authenticated
+ * - Redirects to onboarding if user hasn't completed onboarding (except on onboarding page)
  * - Renders children if user is authenticated
  * - Preserves the intended destination for post-login redirect
  */
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   const location = useLocation();
 
   // Show loading state while checking authentication
@@ -34,6 +35,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   // Save the current location so we can redirect back after login
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  // Redirect to onboarding if not completed (except if already on onboarding page)
+  if (user && !user.onboarding_complete && location.pathname !== '/onboarding') {
+    return <Navigate to="/onboarding" replace />;
   }
 
   // User is authenticated, render the protected content

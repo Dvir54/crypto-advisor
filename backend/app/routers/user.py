@@ -76,3 +76,18 @@ async def get_preferences(
     
     return preferences
 
+
+@router.post("/skip-onboarding", status_code=status.HTTP_200_OK)
+async def skip_onboarding(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    Allow user to skip onboarding quiz.
+    Marks onboarding as complete without saving preferences.
+    """
+    current_user.onboarding_complete = True
+    db.commit()
+    db.refresh(current_user)
+    
+    return {"message": "Onboarding skipped successfully"}

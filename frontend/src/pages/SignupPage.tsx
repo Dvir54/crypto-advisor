@@ -89,8 +89,8 @@ const SignupPage: React.FC = () => {
         email: formData.email.trim().toLowerCase(),
         password: formData.password,
       });
-      // Navigate to dashboard after successful signup
-      navigate('/dashboard');
+      // Navigate to onboarding after successful signup
+      navigate('/onboarding');
     } catch (error: any) {
       console.error('Signup error:', error);
       setServerError(

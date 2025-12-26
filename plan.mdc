@@ -111,26 +111,26 @@ git push -u origin main
 
 ### Git
 - [x] **1.12** Create `.gitignore` for Python and Node
-- [ ] **1.13** Git: Initialize repo, first commit and push
+- [x] **1.13** Git: Initialize repo, first commit and push
 
 ---
 
 ## Phase 2: Authentication
 
 ### Backend
-- [ ] **2.1** Create auth utilities: JWT token creation/validation
-- [ ] **2.2** Create signup endpoint: POST /api/auth/signup
-- [ ] **2.3** Create login endpoint: POST /api/auth/login
-- [ ] **2.4** Create get current user endpoint: GET /api/auth/me
-- [ ] **2.5** Add JWT middleware to protect routes
+- [x] **2.1** Create auth utilities: JWT token creation/validation
+- [x] **2.2** Create signup endpoint: POST /api/auth/signup
+- [x] **2.3** Create login endpoint: POST /api/auth/login
+- [x] **2.4** Create get current user endpoint: GET /api/auth/me
+- [x] **2.5** Add JWT middleware to protect routes
 
 ### Frontend
-- [ ] **2.6** Create AuthContext for managing login state
-- [ ] **2.7** Build signup page: form with email, name, password
-- [ ] **2.8** Build login page: form with email and password
-- [ ] **2.9** Add form validation with error messages
-- [ ] **2.10** Store JWT token in localStorage
-- [ ] **2.11** Add protected route component
+- [x] **2.6** Create AuthContext for managing login state
+- [x] **2.7** Build signup page: form with email, name, password
+- [x] **2.8** Build login page: form with email and password
+- [x] **2.9** Add form validation with error messages
+- [x] **2.10** Store JWT token in localStorage
+- [x] **2.11** Add protected route component
 
 ### Git
 - [ ] **2.12** Git: Commit and push authentication feature

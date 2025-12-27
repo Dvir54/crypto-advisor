@@ -1,0 +1,81 @@
+import React from 'react';
+import type { NewsItem } from '../../types/content';
+import ContentState from './ContentState';
+
+interface NewsSectionProps {
+  news: NewsItem[];
+  loading: boolean;
+  error: string | null;
+}
+
+/**
+ * Section component for displaying cryptocurrency news
+ */
+const NewsSection: React.FC<NewsSectionProps> = ({
+  news,
+  loading,
+  error,
+}) => {
+  return (
+    <div className="dashboard-section news-section">
+      <div className="section-header">
+        <h3>📰 Market News</h3>
+        <span className="section-badge">Latest</span>
+      </div>
+      <div className="section-content">
+        <ContentState
+          loading={loading}
+          error={error}
+          isEmpty={news.length === 0}
+          loadingMessage="Loading market news..."
+          emptyMessage="No news available"
+          emptyIcon="📰"
+        >
+          <div className="news-list">
+            {news.map((item) => (
+              <a
+                key={item.id}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="news-item"
+              >
+                <div className="news-content">
+                  <h4 className="news-title">{item.title}</h4>
+                  <div className="news-meta">
+                    <span className="news-source">{item.source}</span>
+                    <span className="news-separator">•</span>
+                    <span className="news-time">
+                      {new Date(item.published_at).toLocaleDateString()}
+                    </span>
+                    {item.currencies.length > 0 && (
+                      <>
+                        <span className="news-separator">•</span>
+                        <div className="news-currencies">
+                          {item.currencies.slice(0, 3).map((currency) => (
+                            <span key={currency} className="currency-tag">
+                              {currency}
+                            </span>
+                          ))}
+                          {item.currencies.length > 3 && (
+                            <span className="currency-tag">
+                              +{item.currencies.length - 3}
+                            </span>
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+                <span className="news-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        </ContentState>
+      </div>
+    </div>
+  );
+};
+
+export default NewsSection;
+

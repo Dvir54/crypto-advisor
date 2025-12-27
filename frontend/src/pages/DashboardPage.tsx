@@ -2,8 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { getPreferences } from '../services/preferencesService';
+import { getCoinPrices, getNews, getInsight, getMeme } from '../services/contentService';
+import { useContentData } from '../hooks/useContentData';
+import {
+  CoinPricesSection,
+  NewsSection,
+  InsightSection,
+  MemeSection,
+} from '../components/dashboard';
 import './DashboardPage.css';
 
+/**
+ * Main Dashboard Page Component
+ * Displays personalized cryptocurrency content in a 4-section grid layout
+ */
 const DashboardPage: React.FC = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -11,6 +23,40 @@ const DashboardPage: React.FC = () => {
   const [hasPreferences, setHasPreferences] = useState<boolean | null>(null);
   const [showBanner, setShowBanner] = useState(false);
 
+  // Fetch all dashboard content using custom hook
+  const coinPricesData = useContentData(
+    async () => {
+      const response = await getCoinPrices();
+      return response.data;
+    },
+    []
+  );
+
+  const newsData = useContentData(
+    async () => {
+      const response = await getNews(undefined, 10);
+      return response.data;
+    },
+    []
+  );
+
+  const insightData = useContentData(
+    async () => {
+      const response = await getInsight();
+      return response.data;
+    },
+    null
+  );
+
+  const memeData = useContentData(
+    async () => {
+      const response = await getMeme();
+      return response.data;
+    },
+    null
+  );
+
+  // Check user preferences on mount
   useEffect(() => {
     const checkPreferences = async () => {
       try {
@@ -77,47 +123,47 @@ const DashboardPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Dashboard Content */}
+      {/* Dashboard Content - 4 Section Grid */}
       <div className="dashboard-content">
-        <div className="welcome-card">
+        {/* Welcome Header */}
+        <div className="welcome-header">
           <h2>Hello, {user?.name}! 👋</h2>
-          <p className="user-email">{user?.email}</p>
-          
-          <div className="user-info">
-            <div className="info-item">
-              <span className="info-label">Account Status:</span>
-              <span className="info-value">Active</span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">Preferences:</span>
-              <span className="info-value">
-                {hasPreferences === null ? (
-                  <span className="status-loading">Loading...</span>
-                ) : hasPreferences ? (
-                  <span className="status-complete">✓ Configured</span>
-                ) : (
-                  <span className="status-pending">⚠️ Not Set</span>
-                )}
-              </span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">Member Since:</span>
-              <span className="info-value">
-                {user?.created_at ? new Date(user.created_at).toLocaleDateString() : 'N/A'}
-              </span>
-            </div>
-          </div>
+          <p className="welcome-subtext">
+            {hasPreferences === null ? (
+              <span className="status-loading">Loading preferences...</span>
+            ) : hasPreferences ? (
+              <span className="status-complete">✓ Your personalized crypto dashboard</span>
+            ) : (
+              <span className="status-pending">⚠️ Viewing default content</span>
+            )}
+          </p>
+        </div>
 
-          <div className="dashboard-message">
-            <p>
-              {hasPreferences 
-                ? "Your dashboard is personalized based on your preferences!" 
-                : "You're viewing default content. Complete preferences for a personalized experience."}
-            </p>
-            <p className="coming-soon">
-              🚀 Dashboard features coming soon...
-            </p>
-          </div>
+        {/* 4-Section Grid */}
+        <div className="dashboard-grid">
+          <CoinPricesSection
+            coinPrices={coinPricesData.data}
+            loading={coinPricesData.loading}
+            error={coinPricesData.error}
+          />
+
+          <NewsSection
+            news={newsData.data}
+            loading={newsData.loading}
+            error={newsData.error}
+          />
+
+          <InsightSection
+            insight={insightData.data}
+            loading={insightData.loading}
+            error={insightData.error}
+          />
+
+          <MemeSection
+            meme={memeData.data}
+            loading={memeData.loading}
+            error={memeData.error}
+          />
         </div>
       </div>
     </div>

@@ -42,19 +42,63 @@
 }
 
 .dashboard-content {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  padding: 0 1rem;
 }
 
-.welcome-card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  padding: 2.5rem;
-  width: 100%;
-  max-width: 700px;
-  animation: slideIn 0.3s ease-out;
+/* Welcome Header */
+.welcome-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.welcome-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-subtext {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.status-complete {
+  color: #d4fce3;
+  font-weight: 600;
+}
+
+.status-pending {
+  color: #fed7aa;
+  font-weight: 600;
+}
+
+.status-loading {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dashboard Grid - 4 Sections */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: slideIn 0.5s ease-out;
 }
 
 @keyframes slideIn {
@@ -68,80 +112,519 @@
   }
 }
 
-.welcome-card h2 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1a202c;
-  margin: 0 0 0.5rem 0;
-}
-
-.user-email {
-  color: #718096;
-  font-size: 1rem;
-  margin: 0 0 2rem 0;
-}
-
-.user-info {
+/* Dashboard Section Card */
+.dashboard-section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: #f7fafc;
-  border-radius: 12px;
+  transition: all 0.3s ease;
+  animation: cardAppear 0.5s ease-out;
 }
 
-.info-item {
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dashboard-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Section Header */
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f0f0f0;
 }
 
-.info-label {
-  font-size: 0.875rem;
+.section-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-badge {
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #4a5568;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.info-value {
-  font-size: 0.875rem;
-  color: #2d3748;
+/* Section Content */
+.section-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
-.status-complete {
-  color: #38a169;
-  font-weight: 600;
-}
-
-.status-pending {
-  color: #ed8936;
-  font-weight: 600;
-}
-
-.status-loading {
-  color: #718096;
-}
-
-.dashboard-message {
-  border-top: 1px solid #e2e8f0;
-  padding-top: 1.5rem;
-}
-
-.dashboard-message p {
-  color: #4a5568;
+.placeholder-text {
+  color: #a0aec0;
   font-size: 0.9375rem;
-  line-height: 1.6;
-  margin: 0 0 1rem 0;
+  text-align: center;
+  font-style: italic;
 }
 
-.dashboard-message p:last-child {
-  margin-bottom: 0;
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
 }
 
-.coming-soon {
-  color: #667eea !important;
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Error State */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.error-icon {
+  font-size: 2.5rem;
+}
+
+.error-state p {
+  color: #ef4444;
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.75rem;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+}
+
+.empty-state p {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Coins List */
+.coins-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.coin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.coin-item:hover {
+  background: #f3f4f6;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.coin-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.coin-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.coin-name {
+  font-size: 0.9375rem;
   font-weight: 600;
-  font-size: 1rem !important;
+  color: #1f2937;
+}
+
+.coin-symbol {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.coin-price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.coin-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.coin-change {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.coin-change.positive {
+  color: #059669;
+  background: #d1fae5;
+}
+
+.coin-change.negative {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+/* News List */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.news-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  gap: 1rem;
+}
+
+.news-item:hover {
+  background: #f3f4f6;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-color: #3b82f6;
+}
+
+.news-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.news-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-item:hover .news-title {
+  color: #3b82f6;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.news-source {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.news-separator {
+  color: #d1d5db;
+}
+
+.news-time {
+  color: #9ca3af;
+}
+
+.news-currencies {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.currency-tag {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+}
+
+.news-arrow {
+  color: #9ca3af;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.news-item:hover .news-arrow {
+  color: #3b82f6;
+  transform: translateX(4px);
+}
+
+/* AI Insight Card */
+.insight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.insight-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  border-radius: 12px;
+  border: 2px solid #c084fc;
+}
+
+.insight-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1f2937;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.insight-text::before {
+  content: '"';
+  font-size: 2rem;
+  color: #8b5cf6;
+  font-weight: 700;
+  line-height: 0;
+  margin-right: 0.25rem;
+  vertical-align: -0.4rem;
+}
+
+.insight-text::after {
+  content: '"';
+  font-size: 2rem;
+  color: #8b5cf6;
+  font-weight: 700;
+  line-height: 0;
+  margin-left: 0.25rem;
+  vertical-align: -0.4rem;
+}
+
+.insight-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0 0.5rem;
+}
+
+.insight-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.insight-source {
+  font-weight: 600;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.insight-model {
+  color: #6b7280;
+  font-size: 0.6875rem;
+}
+
+.insight-assets {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.asset-tag {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+}
+
+/* Meme Card */
+.meme-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.meme-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+  min-height: 200px;
+  max-height: 280px;
+}
+
+.meme-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 280px;
+}
+
+.meme-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meme-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.meme-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.meme-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.meme-tag {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #78350f;
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  box-shadow: 0 2px 4px rgba(251, 191, 36, 0.2);
+}
+
+/* Individual Section Styling */
+.prices-section .section-badge {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.news-section .section-badge {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.insight-section .section-badge {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.meme-section .section-badge {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
 }
 
 /* Preferences Banner */
@@ -263,6 +746,17 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dashboard-section {
+    min-height: 350px;
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard-container {
     padding: 1rem;
@@ -302,18 +796,108 @@
     flex: 1;
   }
 
-  .welcome-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .welcome-card h2 {
+  .welcome-header h2 {
     font-size: 1.5rem;
   }
 
-  .info-item {
+  .welcome-subtext {
+    font-size: 0.875rem;
+  }
+
+  .dashboard-content {
+    padding: 0 0.5rem;
+  }
+
+  .dashboard-grid {
+    gap: 1rem;
+  }
+
+  .dashboard-section {
+    padding: 1.25rem;
+    min-height: 300px;
+  }
+
+  .section-header h3 {
+    font-size: 1.125rem;
+  }
+
+  .section-badge {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .news-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
+  }
+
+  .news-arrow {
+    display: none;
+  }
+
+  .news-title {
+    font-size: 0.875rem;
+  }
+
+  .news-meta {
+    font-size: 0.6875rem;
+  }
+
+  .coin-item {
+    padding: 0.875rem;
+  }
+
+  .coin-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .coin-name {
+    font-size: 0.875rem;
+  }
+
+  .coin-price {
+    font-size: 0.9375rem;
+  }
+
+  .insight-content {
+    padding: 1rem;
+  }
+
+  .insight-text {
+    font-size: 0.9375rem;
+  }
+
+  .insight-text::before,
+  .insight-text::after {
+    font-size: 1.5rem;
+  }
+
+  .asset-tag {
+    font-size: 0.6875rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .meme-image-container {
+    min-height: 180px;
+    max-height: 220px;
+  }
+
+  .meme-image {
+    max-height: 220px;
+  }
+
+  .meme-title {
+    font-size: 0.9375rem;
+  }
+
+  .meme-caption {
+    font-size: 0.8125rem;
+  }
+
+  .meme-tag {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.5rem;
   }
 }
 

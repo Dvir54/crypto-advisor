@@ -7,6 +7,8 @@ interface NewsSectionProps {
   news: NewsItem[];
   loading: boolean;
   error: string | null;
+  getVote: (contentType: string, contentId: string) => boolean | null;
+  updateVote: (contentType: string, contentId: string, isUpvote: boolean | null) => void;
 }
 
 /**
@@ -16,6 +18,8 @@ const NewsSection: React.FC<NewsSectionProps> = ({
   news,
   loading,
   error,
+  getVote,
+  updateVote,
 }) => {
   return (
     <div className="dashboard-section news-section">
@@ -74,6 +78,8 @@ const NewsSection: React.FC<NewsSectionProps> = ({
                   <VoteButtons
                     contentType="news"
                     contentId={item.id}
+                    initialVote={getVote('news', item.id)}
+                    onVoteChange={(isUpvote) => updateVote('news', item.id, isUpvote)}
                   />
                 </div>
               </div>

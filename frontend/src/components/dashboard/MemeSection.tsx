@@ -7,6 +7,8 @@ interface MemeSectionProps {
   meme: Meme | null;
   loading: boolean;
   error: string | null;
+  getVote: (contentType: string, contentId: string) => boolean | null;
+  updateVote: (contentType: string, contentId: string, isUpvote: boolean | null) => void;
 }
 
 /**
@@ -16,6 +18,8 @@ const MemeSection: React.FC<MemeSectionProps> = ({
   meme,
   loading,
   error,
+  getVote,
+  updateVote,
 }) => {
   return (
     <div className="dashboard-section meme-section">
@@ -59,6 +63,8 @@ const MemeSection: React.FC<MemeSectionProps> = ({
                 <VoteButtons
                   contentType="meme"
                   contentId={meme.id}
+                  initialVote={getVote('meme', meme.id)}
+                  onVoteChange={(isUpvote) => updateVote('meme', meme.id, isUpvote)}
                 />
               </div>
             </div>

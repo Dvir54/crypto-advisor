@@ -7,6 +7,8 @@ interface InsightSectionProps {
   insight: AIInsight | null;
   loading: boolean;
   error: string | null;
+  getVote: (contentType: string, contentId: string) => boolean | null;
+  updateVote: (contentType: string, contentId: string, isUpvote: boolean | null) => void;
 }
 
 /**
@@ -16,6 +18,8 @@ const InsightSection: React.FC<InsightSectionProps> = ({
   insight,
   loading,
   error,
+  getVote,
+  updateVote,
 }) => {
   return (
     <div className="dashboard-section insight-section">
@@ -59,6 +63,8 @@ const InsightSection: React.FC<InsightSectionProps> = ({
                 <VoteButtons
                   contentType="ai"
                   contentId="ai-insight"
+                  initialVote={getVote('ai', 'ai-insight')}
+                  onVoteChange={(isUpvote) => updateVote('ai', 'ai-insight', isUpvote)}
                 />
               </div>
             </div>

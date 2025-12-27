@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { savePreferences, getPreferences } from '../services/preferencesService';
 import api from '../services/api';
-import {
+import type {
   CryptoAssetOption,
   InvestorTypeOption,
   ContentTypeOption,

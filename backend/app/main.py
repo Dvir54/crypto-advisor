@@ -17,17 +17,17 @@ async def lifespan(app: FastAPI):
     try:
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
-        print("✓ Database connection established")
+        print("[OK] Database connection established")
     except Exception as e:
-        print(f"✗ Database connection failed: {e}")
+        print(f"[ERROR] Database connection failed: {e}")
     
     yield
     
     # Shutdown: Clean up resources
     engine.dispose()
-    print("✓ Database connections closed")
+    print("[OK] Database connections closed")
 
-
+# FastAPI app creation
 app = FastAPI(
     title="AI Crypto Advisor",
     description="Personalized crypto insights powered by AI",
@@ -38,12 +38,11 @@ app = FastAPI(
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Update with frontend URL in production
+    allow_origins=["http://localhost:5174", "http://localhost:5173"],  # Update with frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Include routers
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(user.router, prefix="/api/user", tags=["User"])

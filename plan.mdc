@@ -218,8 +218,8 @@ git push -u origin main
 ## Phase 7: Polish and Deploy
 
 ### UI/UX
-- [ ] **7.1** UI improvements: clean design, consistent styling
-- [ ] **7.2** Responsive design: mobile-friendly layout
+- [x] **7.1** UI improvements: clean design, consistent styling
+- [x] **7.2** Responsive design: mobile-friendly layout
 
 ### Deployment - Backend + DB (Railway)
 - [ ] **7.3** Create Railway project

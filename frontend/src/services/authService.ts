@@ -1,5 +1,5 @@
 import api from './api';
-import { User, LoginCredentials, SignupCredentials, TokenResponse } from '../types/auth';
+import type { User, LoginCredentials, SignupCredentials, TokenResponse } from '../types/auth';
 
 /**
  * Login user and return access token

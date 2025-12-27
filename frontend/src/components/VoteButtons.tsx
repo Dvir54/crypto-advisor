@@ -47,13 +47,14 @@ const VoteButtons: React.FC<VoteButtonsProps> = ({
   };
 
   return (
-    <div className="vote-buttons">
+    <div className="vote-buttons" role="group" aria-label="Vote on this content">
       <button
         className={`vote-button vote-up ${currentVote === true ? 'active' : ''}`}
         onClick={() => handleVote(true)}
         disabled={isLoading}
         title="Thumbs up"
-        aria-label="Upvote"
+        aria-label={currentVote === true ? "Upvoted" : "Upvote"}
+        aria-pressed={currentVote === true}
       >
         👍
       </button>
@@ -62,7 +63,8 @@ const VoteButtons: React.FC<VoteButtonsProps> = ({
         onClick={() => handleVote(false)}
         disabled={isLoading}
         title="Thumbs down"
-        aria-label="Downvote"
+        aria-label={currentVote === false ? "Downvoted" : "Downvote"}
+        aria-pressed={currentVote === false}
       >
         👎
       </button>

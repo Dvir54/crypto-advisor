@@ -1,5 +1,5 @@
 import api from './api';
-import { 
+import type { 
   CoinPricesResponse, 
   NewsResponse, 
   InsightResponse, 
@@ -12,7 +12,7 @@ import {
 
 export const getCoinPrices = async (coins?: string[]): Promise<CoinPricesResponse> => {
   const params = coins && coins.length > 0 ? { coins: coins.join(',') } : {};
-  const response = await api.get<CoinPricesResponse>('/api/content/prices', { params });
+  const response = await api.get<CoinPricesResponse>('/content/prices', { params });
   return response.data;
 };
 
@@ -21,18 +21,18 @@ export const getNews = async (currencies?: string[], limit: number = 10): Promis
   if (currencies && currencies.length > 0) {
     params.currencies = currencies.join(',');
   }
-  const response = await api.get<NewsResponse>('/api/content/news', { params });
+  const response = await api.get<NewsResponse>('/content/news', { params });
   return response.data;
 };
 
 export const getInsight = async (): Promise<InsightResponse> => {
-  const response = await api.get<InsightResponse>('/api/content/insight');
+  const response = await api.get<InsightResponse>('/content/insight');
   return response.data;
 };
 
 export const getMeme = async (category?: string): Promise<MemeResponse> => {
   const params = category ? { category } : {};
-  const response = await api.get<MemeResponse>('/api/content/meme', { params });
+  const response = await api.get<MemeResponse>('/content/meme', { params });
   return response.data;
 };
 

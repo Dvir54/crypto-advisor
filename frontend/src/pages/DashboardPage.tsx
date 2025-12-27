@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getPreferences } from '../services/preferencesService';
 import { getCoinPrices, getNews, getInsight, getMeme } from '../services/contentService';
 import { useContentData } from '../hooks/useContentData';
+import { useVotes } from '../hooks/useVotes';
 import {
   CoinPricesSection,
   NewsSection,
@@ -22,6 +23,9 @@ const DashboardPage: React.FC = () => {
   
   const [hasPreferences, setHasPreferences] = useState<boolean | null>(null);
   const [showBanner, setShowBanner] = useState(false);
+
+  // Load user votes
+  const { getVote, updateVote } = useVotes();
 
   // Fetch all dashboard content using custom hook
   const coinPricesData = useContentData(
@@ -82,9 +86,14 @@ const DashboardPage: React.FC = () => {
     <div className="dashboard-container">
       {/* Preferences Banner */}
       {showBanner && (
-        <div className="preferences-banner">
+        <aside 
+          className="preferences-banner" 
+          role="alert" 
+          aria-live="polite"
+          aria-label="Preferences notification"
+        >
           <div className="banner-content">
-            <span className="banner-icon">⚠️</span>
+            <span className="banner-icon" aria-hidden="true">⚠️</span>
             <div className="banner-text">
               <strong>Complete your preferences</strong>
               <p>Get personalized content tailored to your interests</p>
@@ -94,47 +103,60 @@ const DashboardPage: React.FC = () => {
             <button 
               onClick={() => navigate('/onboarding')} 
               className="banner-button-primary"
+              aria-label="Complete preferences now"
             >
               Complete Now
             </button>
             <button 
               onClick={() => setShowBanner(false)} 
               className="banner-button-secondary"
+              aria-label="Dismiss preferences banner"
             >
               Maybe Later
             </button>
           </div>
-        </div>
+        </aside>
       )}
 
       {/* Dashboard Header */}
-      <div className="dashboard-header">
+      <header className="dashboard-header">
         <h1>Welcome to Crypto Advisor</h1>
-        <div className="header-actions">
+        <nav className="header-actions" aria-label="Dashboard navigation">
           <button 
             onClick={() => navigate('/onboarding')} 
             className="preferences-button"
+            aria-label="Edit user preferences"
           >
-            ⚙️ Edit Preferences
+            <span aria-hidden="true">⚙️</span> Edit Preferences
           </button>
-          <button onClick={handleLogout} className="logout-button">
+          <button 
+            onClick={handleLogout} 
+            className="logout-button"
+            aria-label="Logout from application"
+          >
             Logout
           </button>
-        </div>
-      </div>
+        </nav>
+      </header>
 
       {/* Dashboard Content - 4 Section Grid */}
-      <div className="dashboard-content">
+      <main id="main-content" className="dashboard-content">
         {/* Welcome Header */}
-        <div className="welcome-header">
-          <h2>Hello, {user?.name}! 👋</h2>
+        <div className="welcome-header" role="banner">
+          <h2>Hello, {user?.name}! <span aria-hidden="true">👋</span></h2>
           <p className="welcome-subtext">
             {hasPreferences === null ? (
-              <span className="status-loading">Loading preferences...</span>
+              <span className="status-loading" role="status" aria-live="polite">
+                Loading preferences...
+              </span>
             ) : hasPreferences ? (
-              <span className="status-complete">✓ Your personalized crypto dashboard</span>
+              <span className="status-complete" role="status">
+                <span aria-hidden="true">✓</span> Your personalized crypto dashboard
+              </span>
             ) : (
-              <span className="status-pending">⚠️ Viewing default content</span>
+              <span className="status-pending" role="status">
+                <span aria-hidden="true">⚠️</span> Viewing default content
+              </span>
             )}
           </p>
         </div>
@@ -145,27 +167,35 @@ const DashboardPage: React.FC = () => {
             coinPrices={coinPricesData.data}
             loading={coinPricesData.loading}
             error={coinPricesData.error}
+            getVote={getVote}
+            updateVote={updateVote}
           />
 
           <NewsSection
             news={newsData.data}
             loading={newsData.loading}
             error={newsData.error}
+            getVote={getVote}
+            updateVote={updateVote}
           />
 
           <InsightSection
             insight={insightData.data}
             loading={insightData.loading}
             error={insightData.error}
+            getVote={getVote}
+            updateVote={updateVote}
           />
 
           <MemeSection
             meme={memeData.data}
             loading={memeData.loading}
             error={memeData.error}
+            getVote={getVote}
+            updateVote={updateVote}
           />
         </div>
-      </div>
+      </main>
     </div>
   );
 };

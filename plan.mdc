@@ -154,24 +154,24 @@ git push -u origin main
 - [x] **3.10** Handle returning users: skip if already completed
 
 ### Git
-- [ ] **3.11** Git: Commit and push onboarding feature
+- [x] **3.11** Git: Commit and push onboarding feature
 
 ---
 
 ## Phase 4: External APIs Integration
 
 ### Backend Services
-- [ ] **4.1** Create CoinGecko service: fetch coin prices
-- [ ] **4.2** Create CryptoPanic service: fetch news with static fallback
-- [ ] **4.3** Create OpenRouter service: generate AI insight
-- [ ] **4.4** Create static memes JSON file
+- [x] **4.1** Create CoinGecko service: fetch coin prices
+- [x] **4.2** Create CryptoPanic service: fetch news with static fallback
+- [x] **4.3** Create OpenRouter service: generate AI insight
+- [x] **4.4** Create static memes JSON file
 
 ### Backend API Routes
-- [ ] **4.5** Create GET /api/content/prices - coin prices
-- [ ] **4.6** Create GET /api/content/news - market news
-- [ ] **4.7** Create GET /api/content/insight - AI insight
-- [ ] **4.8** Create GET /api/content/meme - random meme
-- [ ] **4.9** Add error handling and fallbacks
+- [x] **4.5** Create GET /api/content/prices - coin prices
+- [x] **4.6** Create GET /api/content/news - market news
+- [x] **4.7** Create GET /api/content/insight - AI insight
+- [x] **4.8** Create GET /api/content/meme - random meme
+- [x] **4.9** Add error handling and fallbacks
 
 ### Git
 - [ ] **4.10** Git: Commit and push API integrations

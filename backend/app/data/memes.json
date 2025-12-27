@@ -1,0 +1,205 @@
+{
+  "memes": [
+    {
+      "id": "meme-1",
+      "title": "HODL Strong",
+      "image_url": "https://i.imgflip.com/5c7lwq.jpg",
+      "caption": "When everyone is panic selling but you're a true HODLer",
+      "tags": ["hodl", "bitcoin", "patience"],
+      "category": "hodl"
+    },
+    {
+      "id": "meme-2",
+      "title": "Buy the Dip",
+      "image_url": "https://i.imgflip.com/65939m.jpg",
+      "caption": "Me: 'I'll wait for the dip to buy more'\nThe dip: *dips even more*\nMe: *surprised pikachu face*",
+      "tags": ["dip", "buying", "market"],
+      "category": "trading"
+    },
+    {
+      "id": "meme-3",
+      "title": "Portfolio Check",
+      "image_url": "https://i.imgflip.com/4t0m5.jpg",
+      "caption": "Checking my crypto portfolio every 5 minutes like it's going to change the outcome",
+      "tags": ["portfolio", "checking", "anxiety"],
+      "category": "trading"
+    },
+    {
+      "id": "meme-4",
+      "title": "Explaining Crypto",
+      "image_url": "https://i.imgflip.com/3oevdk.jpg",
+      "caption": "Trying to explain blockchain to my parents",
+      "tags": ["blockchain", "explanation", "family"],
+      "category": "education"
+    },
+    {
+      "id": "meme-5",
+      "title": "Diamond Hands",
+      "image_url": "https://i.imgflip.com/4/30b1gx.jpg",
+      "caption": "When the market crashes 30% but you have diamond hands 💎🙌",
+      "tags": ["diamond-hands", "crash", "hodl"],
+      "category": "hodl"
+    },
+    {
+      "id": "meme-6",
+      "title": "Gas Fees",
+      "image_url": "https://i.imgflip.com/5w4rt1.jpg",
+      "caption": "Ethereum gas fees: $50\nWhat I'm actually buying: $20\nMe: This is fine",
+      "tags": ["ethereum", "gas-fees", "expensive"],
+      "category": "ethereum"
+    },
+    {
+      "id": "meme-7",
+      "title": "Alt Season",
+      "image_url": "https://i.imgflip.com/2vxwj7.jpg",
+      "caption": "Everyone: When is alt season?\nBitcoin: *goes up*\nAlts: We don't do that here",
+      "tags": ["altcoins", "bitcoin", "season"],
+      "category": "market"
+    },
+    {
+      "id": "meme-8",
+      "title": "Not Financial Advice",
+      "image_url": "https://i.imgflip.com/3lmzyx.jpg",
+      "caption": "This is not financial advice\n*Proceeds to give extremely specific financial advice*",
+      "tags": ["advice", "disclaimer", "funny"],
+      "category": "advice"
+    },
+    {
+      "id": "meme-9",
+      "title": "FOMO",
+      "image_url": "https://i.imgflip.com/5gitn.jpg",
+      "caption": "Coin pumps 5%: *I sleep*\nCoin pumps 100%: *REAL STUFF - FOMO INTENSIFIES*",
+      "tags": ["fomo", "pumping", "trading"],
+      "category": "trading"
+    },
+    {
+      "id": "meme-10",
+      "title": "Rich Soon",
+      "image_url": "https://i.imgflip.com/4acd7j.jpg",
+      "caption": "Me with $50 in crypto: I'm basically a millionaire in training",
+      "tags": ["wealth", "dreams", "optimism"],
+      "category": "dreams"
+    },
+    {
+      "id": "meme-11",
+      "title": "Volatility",
+      "image_url": "https://i.imgflip.com/5x4xfz.jpg",
+      "caption": "My portfolio: *goes up 10%*\nMe: Time to quit my job\nMy portfolio: *goes down 15%*\nMe: I should get a second job",
+      "tags": ["volatility", "emotions", "portfolio"],
+      "category": "trading"
+    },
+    {
+      "id": "meme-12",
+      "title": "Seed Phrase",
+      "image_url": "https://i.imgflip.com/5tdz4.jpg",
+      "caption": "Me: *loses seed phrase*\nMy crypto: Guess I'll just stay here forever",
+      "tags": ["security", "seed-phrase", "wallet"],
+      "category": "security"
+    },
+    {
+      "id": "meme-13",
+      "title": "Bear Market",
+      "image_url": "https://i.imgflip.com/3si4.jpg",
+      "caption": "Bear Market Survivors: We're basically war veterans at this point",
+      "tags": ["bear-market", "survival", "veteran"],
+      "category": "market"
+    },
+    {
+      "id": "meme-14",
+      "title": "NFT Confusion",
+      "image_url": "https://i.imgflip.com/3i7p7l.jpg",
+      "caption": "Right-click to save NFT\nNFT owners: Wait, that's illegal",
+      "tags": ["nft", "ownership", "funny"],
+      "category": "nft"
+    },
+    {
+      "id": "meme-15",
+      "title": "Staking Rewards",
+      "image_url": "https://i.imgflip.com/3oo4h.jpg",
+      "caption": "Getting $0.02 in staking rewards and feeling like a DeFi genius",
+      "tags": ["staking", "rewards", "defi"],
+      "category": "defi"
+    },
+    {
+      "id": "meme-16",
+      "title": "Bull Run",
+      "image_url": "https://i.imgflip.com/5c7lwq.jpg",
+      "caption": "During bull run: Everyone's a genius\nDuring bear market: 'I was just lucky'",
+      "tags": ["bull-run", "bear-market", "cycles"],
+      "category": "market"
+    },
+    {
+      "id": "meme-17",
+      "title": "Whale Watching",
+      "image_url": "https://i.imgflip.com/4t0m5.jpg",
+      "caption": "Me: Moves $100 in crypto\nBlockchain explorers: 👀\nMe: I'm basically a whale",
+      "tags": ["whale", "trading", "funny"],
+      "category": "trading"
+    },
+    {
+      "id": "meme-18",
+      "title": "TA Expert",
+      "image_url": "https://i.imgflip.com/3oevdk.jpg",
+      "caption": "Me after watching 3 YouTube videos on Technical Analysis:\n'According to my calculations...'",
+      "tags": ["technical-analysis", "learning", "expert"],
+      "category": "education"
+    },
+    {
+      "id": "meme-19",
+      "title": "Lambo When",
+      "image_url": "https://i.imgflip.com/5gitn.jpg",
+      "caption": "Portfolio: +3%\nMe: Starts browsing Lamborghini website",
+      "tags": ["lambo", "dreams", "gains"],
+      "category": "dreams"
+    },
+    {
+      "id": "meme-20",
+      "title": "DCA Strategy",
+      "image_url": "https://i.imgflip.com/4acd7j.jpg",
+      "caption": "Smart investors: Dollar Cost Average\nMe: Panic buy high, panic sell low\nAlso me: Why am I not rich yet?",
+      "tags": ["dca", "strategy", "panic"],
+      "category": "trading"
+    },
+    {
+      "id": "meme-21",
+      "title": "Rugpull Detector",
+      "image_url": "https://i.imgflip.com/2vxwj7.jpg",
+      "caption": "New token: 100000% APY\nMe: *Invests*\nThe rug: *gets pulled*\nMe: *shocked*",
+      "tags": ["rugpull", "scam", "defi"],
+      "category": "defi"
+    },
+    {
+      "id": "meme-22",
+      "title": "Crypto Sleep Schedule",
+      "image_url": "https://i.imgflip.com/3si4.jpg",
+      "caption": "Normal people: 8 hours sleep\nCrypto traders: What's sleep? The market never sleeps",
+      "tags": ["sleep", "trading", "lifestyle"],
+      "category": "lifestyle"
+    },
+    {
+      "id": "meme-23",
+      "title": "Taxes",
+      "image_url": "https://i.imgflip.com/3lmzyx.jpg",
+      "caption": "IRS: You owe taxes on your crypto gains\nMe looking at my losses: What gains?",
+      "tags": ["taxes", "losses", "irs"],
+      "category": "taxes"
+    },
+    {
+      "id": "meme-24",
+      "title": "Cold Wallet",
+      "image_url": "https://i.imgflip.com/5x4xfz.jpg",
+      "caption": "Crypto experts: Not your keys, not your crypto\nMe: Moves everything to cold wallet\nAlso me: *forgets where I put the cold wallet*",
+      "tags": ["security", "cold-wallet", "keys"],
+      "category": "security"
+    },
+    {
+      "id": "meme-25",
+      "title": "To The Moon",
+      "image_url": "https://i.imgflip.com/5w4rt1.jpg",
+      "caption": "Crypto going to the moon 🚀🌙\nMy portfolio: Best I can do is to the basement",
+      "tags": ["moon", "rockets", "dreams"],
+      "category": "dreams"
+    }
+  ]
+}
+

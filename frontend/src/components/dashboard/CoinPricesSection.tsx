@@ -1,6 +1,7 @@
 import React from 'react';
 import type { CoinPrice } from '../../types/content';
 import ContentState from './ContentState';
+import VoteButtons from '../VoteButtons';
 
 interface CoinPricesSectionProps {
   coinPrices: CoinPrice[];
@@ -20,7 +21,13 @@ const CoinPricesSection: React.FC<CoinPricesSectionProps> = ({
     <div className="dashboard-section prices-section">
       <div className="section-header">
         <h3>📈 Coin Prices</h3>
-        <span className="section-badge">Live</span>
+        <div className="section-header-right">
+          <span className="section-badge">Live</span>
+          <VoteButtons
+            contentType="price"
+            contentId="price-section"
+          />
+        </div>
       </div>
       <div className="section-content">
         <ContentState

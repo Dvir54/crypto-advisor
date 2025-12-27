@@ -1,0 +1,77 @@
+.vote-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.vote-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.vote-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.vote-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.vote-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Upvote active state - green */
+.vote-button.vote-up.active {
+  background: #10b981;
+  border-color: #059669;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.vote-button.vote-up.active:hover:not(:disabled) {
+  background: #059669;
+  border-color: #047857;
+}
+
+/* Downvote active state - red */
+.vote-button.vote-down.active {
+  background: #ef4444;
+  border-color: #dc2626;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.vote-button.vote-down.active:hover:not(:disabled) {
+  background: #dc2626;
+  border-color: #b91c1c;
+}
+
+/* Animation for vote change */
+@keyframes voteAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.vote-button.active {
+  animation: voteAnimation 0.3s ease;
+}
+

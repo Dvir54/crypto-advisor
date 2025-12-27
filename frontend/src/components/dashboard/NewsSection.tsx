@@ -1,6 +1,7 @@
 import React from 'react';
 import type { NewsItem } from '../../types/content';
 import ContentState from './ContentState';
+import VoteButtons from '../VoteButtons';
 
 interface NewsSectionProps {
   news: NewsItem[];
@@ -33,42 +34,49 @@ const NewsSection: React.FC<NewsSectionProps> = ({
         >
           <div className="news-list">
             {news.map((item) => (
-              <a
-                key={item.id}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="news-item"
-              >
-                <div className="news-content">
-                  <h4 className="news-title">{item.title}</h4>
-                  <div className="news-meta">
-                    <span className="news-source">{item.source}</span>
-                    <span className="news-separator">•</span>
-                    <span className="news-time">
-                      {new Date(item.published_at).toLocaleDateString()}
-                    </span>
-                    {item.currencies.length > 0 && (
-                      <>
-                        <span className="news-separator">•</span>
-                        <div className="news-currencies">
-                          {item.currencies.slice(0, 3).map((currency) => (
-                            <span key={currency} className="currency-tag">
-                              {currency}
-                            </span>
-                          ))}
-                          {item.currencies.length > 3 && (
-                            <span className="currency-tag">
-                              +{item.currencies.length - 3}
-                            </span>
-                          )}
-                        </div>
-                      </>
-                    )}
+              <div key={item.id} className="news-item-wrapper">
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="news-item"
+                >
+                  <div className="news-content">
+                    <h4 className="news-title">{item.title}</h4>
+                    <div className="news-meta">
+                      <span className="news-source">{item.source}</span>
+                      <span className="news-separator">•</span>
+                      <span className="news-time">
+                        {new Date(item.published_at).toLocaleDateString()}
+                      </span>
+                      {item.currencies.length > 0 && (
+                        <>
+                          <span className="news-separator">•</span>
+                          <div className="news-currencies">
+                            {item.currencies.slice(0, 3).map((currency) => (
+                              <span key={currency} className="currency-tag">
+                                {currency}
+                              </span>
+                            ))}
+                            {item.currencies.length > 3 && (
+                              <span className="currency-tag">
+                                +{item.currencies.length - 3}
+                              </span>
+                            )}
+                          </div>
+                        </>
+                      )}
+                    </div>
                   </div>
+                  <span className="news-arrow">→</span>
+                </a>
+                <div className="news-vote-container" onClick={(e) => e.stopPropagation()}>
+                  <VoteButtons
+                    contentType="news"
+                    contentId={item.id}
+                  />
                 </div>
-                <span className="news-arrow">→</span>
-              </a>
+              </div>
             ))}
           </div>
         </ContentState>

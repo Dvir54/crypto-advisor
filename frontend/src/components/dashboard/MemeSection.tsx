@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meme } from '../../types/content';
 import ContentState from './ContentState';
+import VoteButtons from '../VoteButtons';
 
 interface MemeSectionProps {
   meme: Meme | null;
@@ -53,6 +54,12 @@ const MemeSection: React.FC<MemeSectionProps> = ({
                     ))}
                   </div>
                 )}
+              </div>
+              <div className="meme-vote-container">
+                <VoteButtons
+                  contentType="meme"
+                  contentId={meme.id}
+                />
               </div>
             </div>
           )}

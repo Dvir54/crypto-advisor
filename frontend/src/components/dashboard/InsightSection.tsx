@@ -1,6 +1,7 @@
 import React from 'react';
 import type { AIInsight } from '../../types/content';
 import ContentState from './ContentState';
+import VoteButtons from '../VoteButtons';
 
 interface InsightSectionProps {
   insight: AIInsight | null;
@@ -53,6 +54,12 @@ const InsightSection: React.FC<InsightSectionProps> = ({
                     ))}
                   </div>
                 )}
+              </div>
+              <div className="insight-vote-container">
+                <VoteButtons
+                  contentType="ai"
+                  contentId="ai-insight"
+                />
               </div>
             </div>
           )}

@@ -901,3 +901,67 @@
   }
 }
 
+/* Vote Button Containers */
+.section-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.news-item-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: rgba(249, 250, 251, 0.5);
+  margin-bottom: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.news-item-wrapper:hover {
+  background: rgba(243, 244, 246, 0.8);
+  transform: translateX(4px);
+}
+
+.news-item-wrapper .news-item {
+  flex: 1;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.news-vote-container {
+  display: flex;
+  flex-shrink: 0;
+  padding: 0.25rem;
+}
+
+.insight-vote-container,
+.meme-vote-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments for vote buttons */
+@media (max-width: 768px) {
+  .news-item-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .news-vote-container {
+    align-self: flex-end;
+  }
+
+  .section-header-right {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+}
+

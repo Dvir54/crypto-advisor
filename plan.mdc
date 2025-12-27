@@ -201,17 +201,17 @@ git push -u origin main
 ## Phase 6: Voting System
 
 ### Backend
-- [ ] **6.1** Create vote endpoint: POST /api/vote
-- [ ] **6.2** Create get user votes endpoint: GET /api/votes
+- [x] **6.1** Create vote endpoint: POST /api/vote
+- [x] **6.2** Create get user votes endpoint: GET /api/votes
 
 ### Frontend
-- [ ] **6.3** Build thumbs up/down vote component
-- [ ] **6.4** Add voting buttons to all 4 dashboard sections
-- [ ] **6.5** Connect voting to backend API
-- [ ] **6.6** Add visual feedback showing selected state
+- [x] **6.3** Build thumbs up/down vote component
+- [x] **6.4** Add voting buttons to all 4 dashboard sections
+- [x] **6.5** Connect voting to backend API
+- [x] **6.6** Add visual feedback showing selected state
 
 ### Git
-- [ ] **6.7** Git: Commit and push voting system
+- [x] **6.7** Git: Commit and push voting system
 
 ---
 

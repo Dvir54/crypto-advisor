@@ -20,6 +20,11 @@ from app.schemas.content import (
     Meme,
     MemeResponse,
 )
+from app.schemas.vote import (
+    VoteCreate,
+    VoteResponse,
+    VoteUpdate,
+)
 
 __all__ = [
     "UserSignupRequest",
@@ -37,4 +42,7 @@ __all__ = [
     "InsightResponse",
     "Meme",
     "MemeResponse",
+    "VoteCreate",
+    "VoteResponse",
+    "VoteUpdate",
 ]
